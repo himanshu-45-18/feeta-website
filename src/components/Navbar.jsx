@@ -1,97 +1,100 @@
-import { useState } from "react"
-
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  const links = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Team", href: "#team" },
-    { name: "Activities", href: "#activities" },
-    { name: "Events", href: "#events" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Achievements", href: "#achievements" },
-    { name: "Contact", href: "#contact" },
-  ]
-
   return (
-    <nav className="fixed left-0 top-0 z-50 w-full border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-md">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-
-        {/* FEETA Logo */}
+        {/* Logo */}
         <a
           href="#home"
           className="flex items-center gap-3"
-          onClick={() => setMenuOpen(false)}
         >
           <img
             src="/forumlogo.png"
-            alt="FEETA Logo"
-            className="h-12 w-12 object-contain"
+            alt="FEETA × ISF"
+            className="h-10 w-10 shrink-0 object-contain"
           />
 
           <div className="hidden sm:block">
-            <h1 className="text-lg font-bold leading-tight text-slate-900">
-              FEETA
-            </h1>
+            <p className="text-sm font-bold text-white">
+              FEETA × ISF
+            </p>
 
-            <p className="text-xs text-slate-500">
-              Electronics & Telecommunication Engineering
+            <p className="text-[10px] uppercase tracking-wider text-slate-500">
+              ETC Student Community
             </p>
           </div>
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-6 lg:flex">
+        {/* Navigation */}
+        <div className="hidden items-center gap-8 md:flex">
 
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
-            >
-              {link.name}
-            </a>
-          ))}
+          <a
+            href="#home"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            Home
+          </a>
+
+          <a
+            href="#about"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            About
+          </a>
+
+          <a
+            href="#committees"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            Committees
+          </a>
+
+          <a
+            href="#events"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            Events
+          </a>
+
+          <a
+            href="#innovation"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            Innovation
+          </a>
+
+          <a
+            href="#opportunities"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            Opportunities
+          </a>
+
+          <a
+            href="#team"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            Team
+          </a>
+
+          <a
+            href="#gallery"
+            className="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400"
+          >
+            Gallery
+          </a>
 
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-2xl text-slate-700 transition hover:bg-slate-100 lg:hidden"
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
+        {/* Contact Button */}
+        <a
+          href="#contact"
+          className="hidden rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/20 md:block"
         >
-          {menuOpen ? "✕" : "☰"}
-        </button>
+          Contact
+        </a>
 
       </div>
-
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <div className="border-t border-slate-200 bg-white px-6 py-4 lg:hidden">
-
-          <div className="flex flex-col">
-
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="border-b border-slate-100 py-3 text-sm font-medium text-slate-700 transition hover:text-blue-600"
-              >
-                {link.name}
-              </a>
-            ))}
-
-          </div>
-
-        </div>
-      )}
-
     </nav>
   )
 }

@@ -1,35 +1,58 @@
-import { useState } from "react"
-
-const photos = [
+const galleryItems = [
   {
-    image: "/gallery/event1.jpg",
     title: "Technical Workshop",
     category: "Workshop",
+    image: "/gallery/workshop.jpg",
   },
   {
-    image: "/gallery/event2.jpg",
-    title: "ETC Forum Activity",
-    category: "Activity",
+    title: "Student Activity",
+    category: "FEETA",
+    image: "/gallery/activity.jpg",
   },
   {
-    image: "/gallery/event3.jpg",
-    title: "Technical Event",
-    category: "Event",
+    title: "Technical Competition",
+    category: "ISF",
+    image: "/gallery/competition.jpg",
   },
   {
-    image: "/gallery/event4.jpg",
-    title: "Forum Members",
-    category: "Team",
+    title: "Project Exhibition",
+    category: "Innovation",
+    image: "/gallery/project.jpg",
+  },
+]
+
+const achievements = [
+  {
+    number: "01",
+    title: "Technical Excellence",
+    description:
+      "Recognizing students for outstanding technical projects and contributions.",
+  },
+  {
+    number: "02",
+    title: "Competition Success",
+    description:
+      "Celebrating students who participate and perform in technical competitions.",
+  },
+  {
+    number: "03",
+    title: "Innovation",
+    description:
+      "Encouraging students to transform ideas into practical and innovative solutions.",
+  },
+  {
+    number: "04",
+    title: "Student Leadership",
+    description:
+      "Recognizing students who contribute through leadership, teamwork and initiative.",
   },
 ]
 
 function Gallery() {
-  const [selectedPhoto, setSelectedPhoto] = useState(null)
-
   return (
     <section
       id="gallery"
-      className="bg-white px-6 py-24"
+      className="bg-white px-6 py-24 text-slate-900"
     >
       <div className="mx-auto max-w-7xl">
 
@@ -37,100 +60,116 @@ function Gallery() {
         <div className="mx-auto max-w-3xl text-center">
 
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
-            Our Memories
+            Moments & Achievements
           </p>
 
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            ETC Forum
-            <span className="text-blue-600"> Gallery</span>
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Our
+            <span className="text-blue-600"> Journey</span>
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            Explore moments, activities and memories from
-            the ETC Department Forum.
+            A collection of moments, activities, projects and
+            achievements from the ETC student community.
           </p>
 
         </div>
 
-        {/* Gallery Grid */}
+        {/* Gallery */}
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-          {photos.map((photo, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => setSelectedPhoto(photo)}
-              className="group relative overflow-hidden rounded-2xl bg-slate-100 text-left shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+          {galleryItems.map((item) => (
+            <div
+              key={item.title}
+              className="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-100"
             >
 
-              <img
-                src={photo.image}
-                alt={photo.title}
-                className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
-              />
+              <div className="relative h-64 overflow-hidden bg-slate-900">
 
-              {/* Overlay */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5 pt-16">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none"
+                  }}
+                />
 
-                <p className="text-xs font-semibold uppercase tracking-wider text-blue-300">
-                  {photo.category}
+                {/* Fallback */}
+                <div className="absolute inset-0 -z-0 flex items-center justify-center bg-gradient-to-br from-blue-600/20 to-slate-900">
+                  <div className="text-center">
+                    <div className="text-4xl">
+                      📸
+                    </div>
+
+                    <p className="mt-2 text-sm font-semibold text-white">
+                      Photo Coming Soon
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="p-5">
+
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+                  {item.category}
                 </p>
 
-                <h3 className="mt-1 text-lg font-bold text-white">
-                  {photo.title}
+                <h3 className="mt-2 text-lg font-bold">
+                  {item.title}
                 </h3>
 
               </div>
 
-            </button>
+            </div>
           ))}
 
         </div>
 
-      </div>
+        {/* Achievements */}
+        <div className="mt-24">
 
-      {/* Image Preview */}
-      {selectedPhoto && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-6 backdrop-blur-sm"
-          onClick={() => setSelectedPhoto(null)}
-        >
+          <div className="text-center">
 
-          <div
-            className="relative max-h-[90vh] max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
+              Achievements
+            </p>
 
-            <img
-              src={selectedPhoto.image}
-              alt={selectedPhoto.title}
-              className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
-            />
+            <h3 className="mt-3 text-3xl font-bold sm:text-4xl">
+              Celebrating Student Success
+            </h3>
 
-            <div className="mt-4 text-center">
-              <h3 className="text-xl font-bold text-white">
-                {selectedPhoto.title}
-              </h3>
+          </div>
 
-              <p className="mt-1 text-sm text-slate-300">
-                {selectedPhoto.category}
-              </p>
-            </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-            <button
-              type="button"
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute -right-3 -top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-xl font-bold text-slate-900 shadow-lg transition hover:bg-red-500 hover:text-white"
-              aria-label="Close image"
-            >
-              ×
-            </button>
+            {achievements.map((achievement) => (
+              <div
+                key={achievement.number}
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-7 transition duration-300 hover:-translate-y-2 hover:border-blue-200 hover:shadow-xl"
+              >
+
+                <span className="text-4xl font-black text-blue-100">
+                  {achievement.number}
+                </span>
+
+                <h4 className="mt-5 text-xl font-bold">
+                  {achievement.title}
+                </h4>
+
+                <p className="mt-3 leading-7 text-slate-600">
+                  {achievement.description}
+                </p>
+
+              </div>
+            ))}
 
           </div>
 
         </div>
-      )}
 
+      </div>
     </section>
   )
 }

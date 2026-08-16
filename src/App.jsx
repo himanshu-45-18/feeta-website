@@ -1,34 +1,37 @@
 import Navbar from "./components/Navbar"
+
 import Hero from "./sections/Hero"
 import About from "./sections/About"
-import Team from "./sections/Team"
-import Activities from "./sections/Activities"
+import Committees from "./sections/Committees"
 import Events from "./sections/Events"
+import InnovationHub from "./sections/InnovationHub"
+import Opportunities from "./sections/Opportunities"
+import Team from "./sections/Team"
 import Gallery from "./sections/Gallery"
-import Achievements from "./sections/Achievements"
 import Contact from "./sections/Contact"
-import Footer from "./sections/Footer"
+
+import Footer from "./components/Footer"
+
 
 function App() {
   return (
-    <div className="min-h-screen">
-
+    <>
       <Navbar />
 
       <main>
         <Hero />
         <About />
-        <Team />
-        <Activities />
+        <Committees />
         <Events />
+        <InnovationHub />
+        <Opportunities />
+        <Team />
         <Gallery />
-        <Achievements />
         <Contact />
       </main>
 
       <Footer />
-
-    </div>
+    </>
   )
 }
 
