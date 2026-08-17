@@ -1,379 +1,419 @@
-// =====================================================
-// TEAM DATA
-// =====================================================
-
-const teams = {
-  officeBearers: [
-    {
-      name: "Tushar Thakare",
-      role: "President",
-      year: "3rd Year",
-    },
-    {
-      name: "Divyani Daware",
-      role: "Vice President - FEETA/Clubs",
-      year: "3rd Year",
-    },
-    {
-      name: "Yash Site",
-      role: "Vice President - ISF",
-      year: "3rd Year",
-    },
-    {
-      name: "Prathamesh Kharalkar",
-      role: "Secretary",
-      year: "3rd Year",
-    },
-    {
-      name: "Tanvi Wankhede",
-      role: "Joint Secretary",
-      year: "2nd Year",
-    },
-    {
-      name: "Triveni Naik",
-      role: "Treasurer",
-      year: "3rd Year",
-    },
-    {
-      name: "Pratham Bunode",
-      role: "Joint Treasurer",
-      year: "2nd Year",
-    },
-    {
-      name: "Vansh Gawande",
-      role: "Event Manager",
-      year: "3rd Year",
-    },
-    {
-      name: "Harsh Thombre",
-      role: "Technical Head",
-      year: "3rd Year",
-    },
-    {
-      name: "Vidisha Bhadang",
-      role: "PRO / Invitation & Reception Head",
-      year: "3rd Year",
-    },
-    {
-      name: "Piyush Bawankar",
-      role: "Sports Head",
-      year: "3rd Year",
-    },
-    {
-      name: "Somesh Khangare",
-      role: "Discipline Head",
-      year: "3rd Year",
-    },
-  ],
-
-  feeta: [
-    {
-      name: "Sujal Jangilwar",
-      role: "Media Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Siddhesh Hedau",
-      role: "Media Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Yash Gore",
-      role: "Design Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Vidhi Chavan",
-      role: "Joint Event Manager",
-      year: "2nd Year",
-    },
-    {
-      name: "Spandan Ingale",
-      role: "Joint Technical Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Dakshata Kadu",
-      role: "Joint Technical Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Vedanti Chandore",
-      role: "Joint Invitation & Reception / PRO Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Chaitanya Ramadi",
-      role: "Joint Discipline Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Vedant Alpe",
-      role: "Joint Sports Head",
-      year: "2nd Year",
-    },
-    {
-      name: "Vaishnavi Chandekar",
-      role: "Student Coordinator",
-      year: "2nd Year",
-    },
-    {
-      name: "Prathamesh Atram",
-      role: "Student Coordinator",
-      year: "2nd Year",
-    },
-    {
-      name: "Nikhil Shete",
-      role: "Member",
-      year: "2nd Year",
-    },
-  ],
-
-  isf: [
-    {
-      name: "Himanshu Kukde",
-      role: "Member",
-      year: "3rd Year",
-      image: "/members/himanshu.png",
-    },
-    {
-      name: "Rohit Gawande",
-      role: "Member",
-      year: "3rd Year",
-    },
-    {
-      name: "Yash Makade",
-      role: "Member",
-      year: "3rd Year",
-    },
-    {
-      name: "Vaibhav Shete",
-      role: "Member",
-      year: "3rd Year",
-    },
-    {
-      name: "Soham Nagmote",
-      role: "Member",
-      year: "3rd Year",
-    },
-    {
-      name: "Himanshu Tekchande",
-      role: "Member",
-      year: "3rd Year",
-    },
-    {
-      name: "Samiksha Thakare",
-      role: "Member",
-      year: "3rd Year",
-    },
-    {
-      name: "Varun Pinal",
-      role: "Member",
-      year: "2nd Year",
-    },
-    {
-      name: "Nikhil Shete",
-      role: "Member",
-      year: "2nd Year",
-    },
-    {
-      name: "Samruddha Indurkar",
-      role: "Member",
-      year: "2nd Year",
-    },
-  ],
-
-  mentors: [
-    {
-      name: "Chaitanya Wankhede",
-      role: "Mentor",
-      year: "4th Year",
-    },
-    {
-      name: "Avnish Mankar",
-      role: "Mentor",
-      year: "4th Year",
-    },
-    {
-      name: "Soumya Rawane",
-      role: "Mentor",
-      year: "4th Year",
-    },
-    {
-      name: "Rushit Satode",
-      role: "Mentor",
-      year: "4th Year",
-    },
-  ],
-}
-
+import { useState } from "react"
 
 // =====================================================
 // FACULTY DATA
 // =====================================================
 
-const hod = {
-  name: "Dr. Abhay Kasetwar",
-  designation: "Professor & HoD",
-  joiningDate: "27/10/2014",
-  qualification: "Ph.D (Digital Technology)",
-  experience: "12+ Years",
-  area: "Signal Processing, VLSI",
-  association: "Regular",
-  email: "hodetc@sbjit.edu.in",
-
-  // Add HOD photo later:
-  // image: "/faculty/abhay-kasetwar.png",
-}
-
-
 const faculty = [
   {
+    name: "Dr. Abhay Kasetwar",
+    role: "Professor & HoD",
+    joiningDate: "27/10/14",
+    qualification: "Ph.D (Digital Technology)",
+    experience: "12+ Years",
+    areaOfInterest: "Signal Processing, VLSI",
+    association: "Regular",
+    email: "hodetc@sbjit.edu.in",
+    isHod: true,
+  },
+
+  {
     name: "Dr. Rahul Pethe",
-    designation: "Associate Professor",
+    role: "Associate Professor",
     joiningDate: "01/03/2023",
     qualification: "Ph.D",
     experience: "20+ Years",
-    area:
+    areaOfInterest:
       "Embedded Systems, IoT, WSN, CCN, Image Processing, Big Data, Web Development",
     association: "Regular",
     email: "rahulpethe@sbjit.edu.in",
-
-    // image: "/faculty/rahul-pethe.png",
   },
 
   {
     name: "Dr. Mohammad Waseem Khanooni",
-    designation: "Assistant Professor",
-    joiningDate: "05/11/2014",
+    role: "Assistant Professor",
+    joiningDate: "05/11/14",
     qualification: "Ph.D VLSI",
     experience: "18.6+ Years",
-    area: "Digital Design",
+    areaOfInterest: "Digital Design",
     association: "Regular",
     email: "mwkhanooni@sbjit.edu.in",
-
-    // image: "/faculty/mohammad-waseem-khanooni.png",
   },
 
   {
     name: "Dr. Parag Vinod Puranik",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "13/07/2023",
     qualification: "Ph.D. (Biomedical Signal Processing)",
     experience: "15+ Years",
-    area: "Signal Processing, Biomedical Signal Processing",
+    areaOfInterest:
+      "Signal Processing, Biomedical Signal Processing",
     association: "Regular",
     email: "paragpuranik@sbjit.edu.in",
-
-    // image: "/faculty/parag-puranik.png",
   },
 
   {
     name: "Dr. Sagar Pradhan",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "21/05/2018",
     qualification: "Ph.D (Pursuing), M.Tech (ETC)",
     experience: "8.6+ Years",
-    area:
+    areaOfInterest:
       "Wireless Sensor Networks, Internet of Things, Electromagnetic, Antenna and Wave Propagation",
     association: "Regular",
     email: "sagarpaddhan@sbjit.edu.in",
-
-    // image: "/faculty/sagar-pradhan.png",
   },
 
   {
     name: "Prof. Vivek Deshmukh",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "11/06/2009",
     qualification: "M.Tech (Electronics)",
     experience: "15.6+ Years",
-    area: "System Programming, OS, Computer Networks",
+    areaOfInterest:
+      "System Programming, OS, Computer Networks",
     association: "Regular",
     email: "vivekdeshmukh@sbjit.edu.in",
-
-    // image: "/faculty/vivek-deshmukh.png",
   },
 
   {
     name: "Prof. Mohammed Akram",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "01/10/2012",
     qualification: "M.Tech, Ph.D (Pursuing)",
     experience: "10.6+ Years",
-    area: "RF and Microwave",
+    areaOfInterest: "RF and Microwave",
     association: "Regular",
     email: "waseemakram@sbjit.edu.in",
-
-    // image: "/faculty/mohammed-akram.png",
   },
 
   {
     name: "Prof. Shailesh M. Sakhare",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "20/09/2022",
-    qualification: "M.Tech. (Electronics), Ph.D (Pursuing)",
+    qualification:
+      "M.Tech. (Electronics), Ph.D (Pursuing)",
     experience: "8+ Years",
-    area: "RF and Microwave",
+    areaOfInterest: "RF and Microwave",
     association: "Regular",
     email: "shaileshsakhare@sbjit.edu.in",
-
-    // image: "/faculty/shailesh-sakhare.png",
   },
 
   {
     name: "Prof. Ayushi Jaiswal",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "30/06/2017",
-    qualification: "M.E (Embedded System & Computing), Ph.D (Pursuing)",
+    qualification:
+      "M.E (Embedded System & Computing), Ph.D (Pursuing)",
     experience: "9.6+ Years",
-    area: "Embedded System, IoT",
+    areaOfInterest: "Embedded System, IoT",
     association: "Regular",
     email: "ayushijaiswal@sbjit.edu.in",
-
-    // image: "/faculty/ayushi-jaiswal.png",
   },
 
   {
     name: "Ms. Vijetalaxmi A Hegde",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "10/08/2022",
     qualification: "M.Tech, Ph.D (Pursuing)",
     experience: "10+ Years",
-    area: "Digital Design",
+    areaOfInterest: "Digital Design",
     association: "Regular",
     email: "laxmi.vijeta@sbjit.edu.in",
-
-    // image: "/faculty/vijetalaxmi-hegde.png",
   },
 
   {
     name: "Ms. Chaitali Darode",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "08/08/2022",
     qualification: "M.Tech, Ph.D (Pursuing)",
     experience: "8+ Years",
-    area:
+    areaOfInterest:
       "C, C++, Python, SQL, HTML, Microprocessor, Microcontroller, Digital Circuit",
     association: "Regular",
     email: "chaitalidarode@sbjit.edu.in",
-
-    // image: "/faculty/chaitali-darode.png",
   },
 
   {
     name: "Prof. Irfan Javed",
-    designation: "Assistant Professor",
+    role: "Assistant Professor",
     joiningDate: "28/08/2023",
     qualification: "M.Tech",
     experience: "11+ Years",
-    area: "Electronic and Telecommunication",
+    areaOfInterest: "Electronic and Telecommunication",
     association: "Regular",
     email: "irfanjaved@sbjit.edu.in",
-
-    // image: "/faculty/irfan-javed.png",
   },
 ]
+
+
+// =====================================================
+// FORUM INCHARGE
+// =====================================================
+
+const ayushi = {
+  name: "Prof. Ayushi Jaiswal",
+  role: "Forum Incharge",
+  qualification:
+    "M.E (Embedded System & Computing), Ph.D (Pursuing)",
+  experience: "9.6+ Years",
+  areaOfInterest: "Embedded System, IoT",
+  email: "ayushijaiswal@sbjit.edu.in",
+}
+
+
+// =====================================================
+// MENTORS
+// =====================================================
+
+const mentors = [
+  {
+    name: "Chaitanya Wankhede",
+    role: "Mentor",
+  },
+
+  {
+    name: "Ayushi Mankar",
+    role: "Mentor",
+  },
+
+  {
+    name: "Soumya Bawane",
+    role: "Mentor",
+  },
+
+  {
+    name: "Krish Sarode",
+    role: "Mentor",
+  },
+]
+
+
+// =====================================================
+// FEETA — 2025-2026
+// =====================================================
+
+const feeta2025 = [
+  {
+    name: "Tushar Thakare",
+    role: "President",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Divyani Daware",
+    role: "Vice President - FEETA/Clubs",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Prathmesh Kharalkar",
+    role: "Secretary",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Tanvi Wankhede",
+    role: "Joint Secretary",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Triveni Naik",
+    role: "Treasurer",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Pratham Banode",
+    role: "Joint Treasurer",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Vansh Gawande",
+    role: "Event Manager",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Harsh Thombre",
+    role: "Technical Head",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Vidisha Bhadang",
+    role: "PRO / Invitation & Reception Head",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Piyush Bawankar",
+    role: "Sports Head",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Somesh Khangare",
+    role: "Discipline Head",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Sujal Jangilwar",
+    role: "Media Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Sidhesh Hedau",
+    role: "Media Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Yash Gore",
+    role: "Design Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Vidhi Chavhan",
+    role: "Joint Event Manager",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Spandan Ingale",
+    role: "Joint Technical Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Dakshata Kadu",
+    role: "Joint Technical Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Vedanti Chandore",
+    role: "Joint Invitation & Reception / PRO Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Chetna Kamdi",
+    role: "Joint Discipline Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Vedant Zilpe",
+    role: "Joint Sports Head",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Mayank Chandrakapure",
+    role: "Student Coordinator",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Harshit Masram",
+    role: "Student Coordinator",
+    year: "2nd Year",
+  },
+]
+
+
+// =====================================================
+// FEETA — 2024-2025
+// =====================================================
+
+const feeta2024 = []
+
+
+// =====================================================
+// ISF — 2025-2026
+// =====================================================
+
+const isf2025 = [
+  {
+    name: "Yash Site",
+    role: "Vice President - ISF",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Himanshu Kukde",
+    role: "Member",
+    year: "3rd Year",
+    image: "/members/himanshu.png",
+  },
+
+  {
+    name: "Awdhesh Chorgade",
+    role: "Member",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Yash Makade",
+    role: "Member",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Vaibhav Shete",
+    role: "Member",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Soham Nagmote",
+    role: "Member",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Himanshu Lokhande",
+    role: "Member",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Samiksha Thakare",
+    role: "Member",
+    year: "3rd Year",
+  },
+
+  {
+    name: "Aaruni Pisal",
+    role: "Member",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Nikhil Shelke",
+    role: "Member",
+    year: "2nd Year",
+  },
+
+  {
+    name: "Sumedha Indurkar",
+    role: "Member",
+    year: "2nd Year",
+  },
+]
+
+
+// =====================================================
+// ISF — 2024-2025
+// =====================================================
+
+const isf2024 = []
 
 
 // =====================================================
@@ -400,25 +440,33 @@ function FacultyCard({ member, index }) {
 
   return (
     <div
-      className="
-        group relative overflow-hidden
+      className={`
+        group
+        relative
+        overflow-hidden
         rounded-3xl
-        border border-slate-800
+        border
+        ${
+          member.isHod
+            ? "border-blue-500/60 shadow-xl shadow-blue-500/10"
+            : "border-slate-800"
+        }
         bg-slate-900
         opacity-0
-        animate-[teamCardIn_0.8s_cubic-bezier(0.22,1,0.36,1)_forwards]
-        transition-all duration-500
+        animate-[teamCardIn_0.8s_ease-out_forwards]
+        transition-all
+        duration-500
         hover:-translate-y-3
-        hover:border-blue-500/50
+        hover:border-blue-500/60
         hover:shadow-2xl
-        hover:shadow-blue-500/20
-      "
+        hover:shadow-blue-500/10
+      `}
       style={{
         animationDelay: `${index * 100}ms`,
       }}
     >
 
-      {/* Card Glow */}
+      {/* Animated glow */}
 
       <div
         className="
@@ -426,14 +474,14 @@ function FacultyCard({ member, index }) {
           absolute
           -right-20
           -top-20
-          h-48
-          w-48
+          h-52
+          w-52
           rounded-full
           bg-blue-500/0
           blur-3xl
           transition-all
           duration-700
-          group-hover:bg-blue-500/20
+          group-hover:bg-blue-500/15
           group-hover:scale-150
         "
       />
@@ -443,8 +491,10 @@ function FacultyCard({ member, index }) {
       <div
         className="
           relative
+          flex
           h-80
-          w-full
+          items-center
+          justify-center
           overflow-hidden
           bg-gradient-to-br
           from-slate-800
@@ -452,52 +502,6 @@ function FacultyCard({ member, index }) {
           to-slate-950
         "
       >
-
-        {/* Decorative circles */}
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            left-1/2
-            top-1/2
-            h-56
-            w-56
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            border
-            border-blue-500/10
-            transition-all
-            duration-1000
-            group-hover:h-72
-            group-hover:w-72
-            group-hover:border-blue-500/30
-          "
-        />
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            left-1/2
-            top-1/2
-            h-44
-            w-44
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            border
-            border-cyan-400/10
-            transition-all
-            duration-1000
-            group-hover:h-56
-            group-hover:w-56
-            group-hover:border-cyan-400/30
-          "
-        />
-
-        {/* Photo / Initials */}
 
         {member.image ? (
           <img
@@ -509,7 +513,7 @@ function FacultyCard({ member, index }) {
               h-full
               w-full
               object-cover
-              transition-all
+              transition-transform
               duration-700
               group-hover:scale-105
             "
@@ -520,111 +524,104 @@ function FacultyCard({ member, index }) {
               relative
               z-10
               flex
-              h-full
-              w-full
+              h-40
+              w-40
               items-center
               justify-center
+              rounded-full
+              border
+              border-blue-500/30
+              bg-blue-500/10
+              text-4xl
+              font-bold
+              text-blue-400
+              transition-all
+              duration-500
+              group-hover:scale-110
+              group-hover:border-blue-400
             "
           >
-            <div
-              className="
-                flex
-                h-40
-                w-40
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-blue-500/30
-                bg-blue-500/10
-                text-5xl
-                font-bold
-                text-blue-400
-                transition-all
-                duration-700
-                group-hover:scale-110
-                group-hover:border-blue-400
-                group-hover:bg-blue-500/20
-              "
-            >
-              {initials}
-            </div>
+            {initials}
           </div>
         )}
 
-        {/* Dark Gradient */}
-
         <div
           className="
-            pointer-events-none
             absolute
             inset-0
-            z-20
             bg-gradient-to-t
             from-slate-950
-            via-slate-950/10
+            via-transparent
             to-transparent
+            opacity-70
           "
         />
 
-        {/* Shine */}
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            inset-0
-            z-30
-            -translate-x-full
-            skew-x-12
-            bg-gradient-to-r
-            from-transparent
-            via-white/10
-            to-transparent
-            transition-transform
-            duration-1000
-            group-hover:translate-x-full
-          "
-        />
+        {member.isHod && (
+          <div
+            className="
+              absolute
+              left-5
+              top-5
+              z-30
+              rounded-full
+              border
+              border-blue-400/30
+              bg-blue-500/15
+              px-4
+              py-2
+              text-xs
+              font-bold
+              uppercase
+              tracking-wider
+              text-blue-300
+              backdrop-blur-md
+            "
+          >
+            HOD
+          </div>
+        )}
 
       </div>
 
-      {/* Information */}
 
-      <div className="relative z-40 p-6">
+      {/* Details */}
+
+      <div className="relative z-20 p-6">
 
         <h3
           className="
             text-xl
             font-bold
             text-white
-            transition-all
+            transition-colors
             duration-300
-            group-hover:translate-x-1
             group-hover:text-blue-400
           "
         >
           {member.name}
         </h3>
 
-        <p
-          className="
-            mt-2
-            text-sm
-            font-semibold
-            leading-6
-            text-blue-400
-          "
-        >
-          {member.designation}
+        <p className="mt-2 text-sm font-semibold text-blue-400">
+          {member.role}
         </p>
 
         <div className="mt-5 space-y-3 text-sm">
 
           <div>
-            <p className="text-slate-500">
-              Qualification
+            <span className="text-slate-500">
+              Joining Date
+            </span>
+
+            <p className="mt-1 text-slate-300">
+              {member.joiningDate}
             </p>
+          </div>
+
+          <div>
+            <span className="text-slate-500">
+              Qualification
+            </span>
 
             <p className="mt-1 text-slate-300">
               {member.qualification}
@@ -632,9 +629,9 @@ function FacultyCard({ member, index }) {
           </div>
 
           <div>
-            <p className="text-slate-500">
+            <span className="text-slate-500">
               Experience
-            </p>
+            </span>
 
             <p className="mt-1 text-slate-300">
               {member.experience}
@@ -642,46 +639,48 @@ function FacultyCard({ member, index }) {
           </div>
 
           <div>
-            <p className="text-slate-500">
+            <span className="text-slate-500">
               Area of Interest
-            </p>
+            </span>
 
             <p className="mt-1 leading-6 text-slate-300">
-              {member.area}
+              {member.areaOfInterest}
             </p>
           </div>
 
           <div>
-            <p className="text-slate-500">
-              Joining Date
-            </p>
+            <span className="text-slate-500">
+              Association
+            </span>
 
             <p className="mt-1 text-slate-300">
-              {member.joiningDate}
+              {member.association}
             </p>
+          </div>
+
+          <div>
+            <span className="text-slate-500">
+              Email
+            </span>
+
+            <a
+              href={`mailto:${member.email}`}
+              className="
+                mt-1
+                block
+                break-all
+                text-blue-400
+                transition-colors
+                hover:text-cyan-400
+              "
+            >
+              {member.email}
+            </a>
           </div>
 
         </div>
 
-        <a
-          href={`mailto:${member.email}`}
-          className="
-            mt-6
-            block
-            truncate
-            border-t
-            border-slate-800
-            pt-4
-            text-sm
-            text-blue-400
-            transition-colors
-            hover:text-cyan-400
-          "
-        >
-          {member.email}
-        </a>
-
-        <div className="mt-5 h-px w-full bg-slate-800">
+        <div className="mt-6 h-px w-full bg-slate-800">
 
           <div
             className="
@@ -706,267 +705,6 @@ function FacultyCard({ member, index }) {
 
 
 // =====================================================
-// HOD CARD
-// =====================================================
-
-function HODCard({ member }) {
-  const initials = getInitials(member.name)
-
-  return (
-    <div
-      className="
-        group
-        relative
-        mx-auto
-        max-w-5xl
-        overflow-hidden
-        rounded-[2rem]
-        border
-        border-blue-500/20
-        bg-slate-900/90
-        shadow-2xl
-        shadow-blue-500/10
-        transition-all
-        duration-700
-        hover:-translate-y-2
-        hover:border-blue-500/50
-        hover:shadow-blue-500/20
-      "
-    >
-
-      {/* Background glow */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -left-32
-          -top-32
-          h-72
-          w-72
-          rounded-full
-          bg-blue-600/10
-          blur-3xl
-          transition-all
-          duration-1000
-          group-hover:scale-150
-        "
-      />
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -bottom-32
-          -right-32
-          h-72
-          w-72
-          rounded-full
-          bg-cyan-500/10
-          blur-3xl
-        "
-      />
-
-      <div className="relative z-10 grid md:grid-cols-[380px_1fr]">
-
-        {/* HOD PHOTO */}
-
-        <div
-          className="
-            relative
-            h-[420px]
-            overflow-hidden
-            bg-gradient-to-br
-            from-slate-800
-            via-slate-900
-            to-slate-950
-            md:h-full
-          "
-        >
-
-          <div
-            className="
-              absolute
-              left-1/2
-              top-1/2
-              h-64
-              w-64
-              -translate-x-1/2
-              -translate-y-1/2
-              rounded-full
-              border
-              border-blue-500/20
-              transition-all
-              duration-1000
-              group-hover:h-80
-              group-hover:w-80
-            "
-          />
-
-          {member.image ? (
-            <img
-              src={member.image}
-              alt={member.name}
-              className="
-                relative
-                z-10
-                h-full
-                w-full
-                object-cover
-                transition-transform
-                duration-700
-                group-hover:scale-105
-              "
-            />
-          ) : (
-            <div
-              className="
-                relative
-                z-10
-                flex
-                h-full
-                w-full
-                items-center
-                justify-center
-              "
-            >
-              <div
-                className="
-                  flex
-                  h-48
-                  w-48
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-blue-500/30
-                  bg-blue-500/10
-                  text-6xl
-                  font-bold
-                  text-blue-400
-                  transition-all
-                  duration-700
-                  group-hover:scale-110
-                "
-              >
-                {initials}
-              </div>
-            </div>
-          )}
-
-          <div
-            className="
-              absolute
-              inset-0
-              z-20
-              bg-gradient-to-t
-              from-slate-950
-              via-transparent
-              to-transparent
-            "
-          />
-
-        </div>
-
-        {/* HOD DETAILS */}
-
-        <div className="relative p-8 md:p-10">
-
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
-            Head of Department
-          </p>
-
-          <h3 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            {member.name}
-          </h3>
-
-          <p className="mt-2 text-lg font-semibold text-cyan-400">
-            {member.designation}
-          </p>
-
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-
-            <div>
-              <p className="text-xs uppercase tracking-wider text-slate-500">
-                Joining Date
-              </p>
-              <p className="mt-1 text-sm text-slate-300">
-                {member.joiningDate}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-xs uppercase tracking-wider text-slate-500">
-                Experience
-              </p>
-              <p className="mt-1 text-sm text-slate-300">
-                {member.experience}
-              </p>
-            </div>
-
-            <div className="sm:col-span-2">
-              <p className="text-xs uppercase tracking-wider text-slate-500">
-                Qualification
-              </p>
-              <p className="mt-1 text-sm text-slate-300">
-                {member.qualification}
-              </p>
-            </div>
-
-            <div className="sm:col-span-2">
-              <p className="text-xs uppercase tracking-wider text-slate-500">
-                Area of Interest
-              </p>
-              <p className="mt-1 text-sm leading-6 text-slate-300">
-                {member.area}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-xs uppercase tracking-wider text-slate-500">
-                Association
-              </p>
-              <p className="mt-1 text-sm text-slate-300">
-                {member.association}
-              </p>
-            </div>
-
-          </div>
-
-          <a
-            href={`mailto:${member.email}`}
-            className="
-              mt-8
-              inline-flex
-              rounded-full
-              border
-              border-blue-500/20
-              bg-blue-500/10
-              px-5
-              py-2.5
-              text-sm
-              font-medium
-              text-blue-400
-              transition-all
-              duration-300
-              hover:border-blue-500/50
-              hover:bg-blue-500/20
-              hover:text-cyan-400
-            "
-          >
-            {member.email}
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-  )
-}
-
-
-// =====================================================
 // MEMBER CARD
 // =====================================================
 
@@ -976,26 +714,29 @@ function MemberCard({ member, index }) {
   return (
     <div
       className="
-        team-card
-        group relative overflow-hidden
+        group
+        relative
+        overflow-hidden
         rounded-3xl
-        border border-slate-800
+        border
+        border-slate-800
         bg-slate-900
         opacity-0
-        animate-[teamCardIn_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards]
-        transition-all duration-500
-        hover:-translate-y-4
+        animate-[teamCardIn_0.8s_ease-out_forwards]
+        transition-all
+        duration-500
+        hover:-translate-y-3
         hover:scale-[1.02]
         hover:border-blue-500/60
         hover:shadow-2xl
-        hover:shadow-blue-500/20
+        hover:shadow-blue-500/15
       "
       style={{
-        animationDelay: `${index * 120}ms`,
+        animationDelay: `${index * 80}ms`,
       }}
     >
 
-      {/* Card Glow */}
+      {/* Glow */}
 
       <div
         className="
@@ -1010,30 +751,12 @@ function MemberCard({ member, index }) {
           blur-3xl
           transition-all
           duration-700
-          group-hover:scale-150
           group-hover:bg-blue-500/20
-        "
-      />
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -bottom-20
-          -left-20
-          h-40
-          w-40
-          rounded-full
-          bg-cyan-500/0
-          blur-3xl
-          transition-all
-          duration-700
           group-hover:scale-150
-          group-hover:bg-cyan-500/10
         "
       />
 
-      {/* PHOTO */}
+      {/* Photo */}
 
       <div
         className="
@@ -1059,7 +782,7 @@ function MemberCard({ member, index }) {
             border
             border-blue-500/10
             transition-all
-            duration-1000
+            duration-700
             group-hover:h-56
             group-hover:w-56
             group-hover:border-blue-500/30
@@ -1075,7 +798,7 @@ function MemberCard({ member, index }) {
             border
             border-cyan-400/10
             transition-all
-            duration-1000
+            duration-700
             group-hover:h-44
             group-hover:w-44
             group-hover:border-cyan-400/30
@@ -1095,7 +818,6 @@ function MemberCard({ member, index }) {
               transition-all
               duration-700
               group-hover:scale-110
-              group-hover:rotate-1
             "
           />
         ) : (
@@ -1115,11 +837,9 @@ function MemberCard({ member, index }) {
               text-4xl
               font-bold
               text-blue-400
-              animate-[avatarPulse_3s_ease-in-out_infinite]
               transition-all
-              duration-700
+              duration-500
               group-hover:scale-125
-              group-hover:rotate-6
               group-hover:border-blue-400
               group-hover:bg-blue-500/20
             "
@@ -1137,45 +857,27 @@ function MemberCard({ member, index }) {
             from-slate-950
             via-slate-950/20
             to-transparent
-            opacity-50
-            transition-all
+            opacity-60
+            transition-opacity
             duration-500
             group-hover:opacity-80
           "
         />
 
-        <div
-          className="
-            pointer-events-none
-            absolute
-            inset-0
-            z-30
-            -translate-x-full
-            skew-x-12
-            bg-gradient-to-r
-            from-transparent
-            via-white/10
-            to-transparent
-            transition-transform
-            duration-1000
-            group-hover:translate-x-full
-          "
-        />
-
       </div>
 
-      {/* INFORMATION */}
 
-      <div className="relative z-40 p-6">
+      {/* Details */}
+
+      <div className="relative z-30 p-6">
 
         <h3
           className="
             text-xl
             font-bold
             text-white
-            transition-all
+            transition-colors
             duration-300
-            group-hover:translate-x-1
             group-hover:text-blue-400
           "
         >
@@ -1223,83 +925,192 @@ function MemberCard({ member, index }) {
 
 
 // =====================================================
-// TEAM GROUP
+// MENTOR CARD
 // =====================================================
 
-function TeamGroup({ title, description, members }) {
+function MentorCard({ mentor, index }) {
+  const initials = getInitials(mentor.name)
+
   return (
-    <div className="mt-24">
+    <div
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-3xl
+        border
+        border-slate-800
+        bg-slate-900
+        opacity-0
+        animate-[teamCardIn_0.8s_ease-out_forwards]
+        transition-all
+        duration-500
+        hover:-translate-y-3
+        hover:border-blue-500/60
+        hover:shadow-2xl
+        hover:shadow-blue-500/15
+      "
+      style={{
+        animationDelay: `${index * 100}ms`,
+      }}
+    >
+
+      {/* Blue glow */}
 
       <div
         className="
-          group
-          mb-10
-          opacity-0
-          animate-[teamHeading_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards]
+          pointer-events-none
+          absolute
+          -right-16
+          -top-16
+          h-48
+          w-48
+          rounded-full
+          bg-blue-500/0
+          blur-3xl
+          transition-all
+          duration-700
+          group-hover:bg-blue-500/20
+          group-hover:scale-150
+        "
+      />
+
+      {/* Large photo placeholder */}
+
+      <div
+        className="
+          relative
+          flex
+          h-72
+          items-center
+          justify-center
+          overflow-hidden
+          bg-gradient-to-br
+          from-slate-800
+          via-slate-900
+          to-slate-950
         "
       >
 
-        <div className="flex items-center gap-4">
-
-          <div
-            className="
-              h-px
-              w-10
-              bg-blue-500
-              transition-all
-              duration-500
-              group-hover:w-20
-            "
-          />
-
-          <p
-            className="
-              text-sm
-              font-semibold
-              uppercase
-              tracking-[0.3em]
-              text-blue-400
-              transition-colors
-              duration-300
-              group-hover:text-cyan-400
-            "
-          >
-            {title}
-          </p>
-
-        </div>
-
-        <p
+        <div
           className="
-            mt-3
-            max-w-2xl
-            text-slate-400
-            transition-colors
-            duration-300
-            group-hover:text-slate-300
+            absolute
+            h-52
+            w-52
+            rounded-full
+            border
+            border-blue-500/10
+            transition-all
+            duration-700
+            group-hover:h-64
+            group-hover:w-64
+            group-hover:border-blue-500/30
+          "
+        />
+
+        <div
+          className="
+            absolute
+            h-36
+            w-36
+            rounded-full
+            border
+            border-cyan-400/10
+            transition-all
+            duration-700
+            group-hover:h-48
+            group-hover:w-48
+            group-hover:border-cyan-400/30
+          "
+        />
+
+        <div
+          className="
+            relative
+            z-10
+            flex
+            h-36
+            w-36
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-blue-400/30
+            bg-blue-500/10
+            text-4xl
+            font-black
+            text-blue-400
+            transition-all
+            duration-500
+            group-hover:scale-110
+            group-hover:border-blue-400
+            group-hover:bg-blue-500/20
           "
         >
-          {description}
-        </p>
+          {initials}
+        </div>
+
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-slate-950
+            via-transparent
+            to-transparent
+            opacity-70
+          "
+        />
 
       </div>
 
-      <div
-        className="
-          grid
-          gap-6
-          sm:grid-cols-2
-          lg:grid-cols-4
-        "
-      >
 
-        {members.map((member, index) => (
-          <MemberCard
-            key={`${title}-${member.name}-${member.role}`}
-            member={member}
-            index={index}
+      {/* Mentor information */}
+
+      <div className="relative z-20 p-6 text-center">
+
+        <p
+          className="
+            text-xs
+            font-bold
+            uppercase
+            tracking-[0.25em]
+            text-blue-400
+          "
+        >
+          Mentor
+        </p>
+
+        <h3
+          className="
+            mt-3
+            text-xl
+            font-bold
+            text-white
+            transition-colors
+            duration-300
+            group-hover:text-blue-400
+          "
+        >
+          {mentor.name}
+        </h3>
+
+        <div className="mx-auto mt-5 h-px w-full bg-slate-800">
+
+          <div
+            className="
+              h-full
+              w-0
+              bg-gradient-to-r
+              from-blue-500
+              to-cyan-400
+              transition-all
+              duration-700
+              group-hover:w-full
+            "
           />
-        ))}
+
+        </div>
 
       </div>
 
@@ -1309,10 +1120,277 @@ function TeamGroup({ title, description, members }) {
 
 
 // =====================================================
-// TEAM SECTION
+// FORUM INCHARGE
+// =====================================================
+
+function ForumIncharge() {
+  return (
+    <div
+      className="
+        group
+        relative
+        mx-auto
+        mb-12
+        max-w-3xl
+        overflow-hidden
+        rounded-3xl
+        border
+        border-blue-500/40
+        bg-gradient-to-br
+        from-blue-500/10
+        via-slate-900
+        to-slate-950
+        p-6
+        shadow-2xl
+        shadow-blue-500/10
+        transition-all
+        duration-500
+        hover:-translate-y-2
+        hover:border-blue-400/70
+        hover:shadow-blue-500/20
+      "
+    >
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-20
+          -top-20
+          h-48
+          w-48
+          rounded-full
+          bg-blue-500/10
+          blur-3xl
+          transition-all
+          duration-700
+          group-hover:scale-150
+        "
+      />
+
+      <div className="relative flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
+
+        <div
+          className="
+            flex
+            h-32
+            w-32
+            shrink-0
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-blue-400/40
+            bg-blue-500/10
+            text-3xl
+            font-bold
+            text-blue-400
+            shadow-lg
+            shadow-blue-500/10
+            transition-all
+            duration-500
+            group-hover:scale-110
+            group-hover:border-blue-400
+          "
+        >
+          AJ
+        </div>
+
+        <div>
+
+          <p
+            className="
+              text-xs
+              font-bold
+              uppercase
+              tracking-[0.25em]
+              text-blue-400
+            "
+          >
+            Forum Incharge
+          </p>
+
+          <h3 className="mt-2 text-2xl font-bold text-white">
+            {ayushi.name}
+          </h3>
+
+          <p className="mt-1 text-sm font-semibold text-blue-400">
+            {ayushi.role}
+          </p>
+
+          <p className="mt-3 text-sm leading-6 text-slate-400">
+            {ayushi.qualification}
+          </p>
+
+          <p className="mt-1 text-sm text-slate-500">
+            {ayushi.areaOfInterest}
+          </p>
+
+          <a
+            href={`mailto:${ayushi.email}`}
+            className="
+              mt-2
+              inline-block
+              text-sm
+              text-blue-400
+              transition-colors
+              hover:text-cyan-400
+            "
+          >
+            {ayushi.email}
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
+
+
+// =====================================================
+// YEAR SELECTOR
+// =====================================================
+
+function YearSelector({ year, setYear }) {
+  return (
+    <div className="mb-10 flex flex-wrap justify-center gap-3">
+
+      <button
+        type="button"
+        onClick={() => setYear("2025")}
+        className={`
+          rounded-full
+          border
+          px-6
+          py-3
+          text-sm
+          font-semibold
+          transition-all
+          duration-300
+          ${
+            year === "2025"
+              ? "border-blue-400 bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+              : "border-slate-700 bg-slate-900 text-slate-400 hover:border-blue-500/50 hover:text-white"
+          }
+        `}
+      >
+        2025–2026
+      </button>
+
+      <button
+        type="button"
+        onClick={() => setYear("2024")}
+        className={`
+          rounded-full
+          border
+          px-6
+          py-3
+          text-sm
+          font-semibold
+          transition-all
+          duration-300
+          ${
+            year === "2024"
+              ? "border-blue-400 bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+              : "border-slate-700 bg-slate-900 text-slate-400 hover:border-blue-500/50 hover:text-white"
+          }
+        `}
+      >
+        2024–2025
+      </button>
+
+    </div>
+  )
+}
+
+
+// =====================================================
+// YEAR MEMBERS
+// =====================================================
+
+function YearMembers({ members, type }) {
+
+  if (members.length === 0) {
+    return (
+      <div
+        className="
+          rounded-3xl
+          border
+          border-dashed
+          border-slate-700
+          bg-slate-900/50
+          px-6
+          py-16
+          text-center
+        "
+      >
+
+        <div className="text-4xl">
+          📚
+        </div>
+
+        <h3 className="mt-4 text-xl font-bold text-white">
+          Past Members
+        </h3>
+
+        <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-slate-500">
+          Past {type} members for this academic year will be added here.
+        </p>
+
+      </div>
+    )
+  }
+
+  return (
+    <div
+      className="
+        grid
+        gap-6
+        sm:grid-cols-2
+        lg:grid-cols-4
+      "
+    >
+
+      {members.map((member, index) => (
+        <MemberCard
+          key={`${member.name}-${member.role}-${index}`}
+          member={member}
+          index={index}
+        />
+      ))}
+
+    </div>
+  )
+}
+
+
+// =====================================================
+// TEAM
 // =====================================================
 
 function Team() {
+
+  const [activeSection, setActiveSection] = useState("faculty")
+
+  const [feetaYear, setFeetaYear] = useState("2025")
+
+  const [isfYear, setIsfYear] = useState("2025")
+
+
+  const feetaMembers =
+    feetaYear === "2025"
+      ? feeta2025
+      : feeta2024
+
+
+  const isfMembers =
+    isfYear === "2025"
+      ? isf2025
+      : isf2024
+
+
   return (
     <section
       id="team"
@@ -1325,7 +1403,9 @@ function Team() {
       "
     >
 
-      {/* Background Glow 1 */}
+      {/* =================================================
+          BACKGROUND ANIMATIONS
+      ================================================= */}
 
       <div
         className="
@@ -1342,8 +1422,6 @@ function Team() {
         "
       />
 
-      {/* Background Glow 2 */}
-
       <div
         className="
           pointer-events-none
@@ -1358,8 +1436,6 @@ function Team() {
           animate-[teamOrb2_10s_ease-in-out_infinite]
         "
       />
-
-      {/* Background Glow 3 */}
 
       <div
         className="
@@ -1376,22 +1452,12 @@ function Team() {
         "
       />
 
-      {/* Floating Particles */}
-
-      <div className="pointer-events-none absolute left-[8%] top-[20%] h-1.5 w-1.5 rounded-full bg-blue-400 animate-[teamParticle_5s_ease-in-out_infinite]" />
-
-      <div className="pointer-events-none absolute left-[18%] top-[55%] h-1 w-1 rounded-full bg-cyan-400 animate-[teamParticle_7s_ease-in-out_infinite]" />
-
-      <div className="pointer-events-none absolute right-[12%] top-[30%] h-1.5 w-1.5 rounded-full bg-blue-500 animate-[teamParticle_6s_ease-in-out_infinite]" />
-
-      <div className="pointer-events-none absolute right-[20%] bottom-[20%] h-1 w-1 rounded-full bg-cyan-400 animate-[teamParticle_8s_ease-in-out_infinite]" />
-
-
-      {/* CONTENT */}
 
       <div className="relative mx-auto max-w-7xl">
 
-        {/* MAIN HEADING */}
+        {/* =================================================
+            HEADING
+        ================================================= */}
 
         <div className="mx-auto max-w-3xl text-center">
 
@@ -1422,7 +1488,6 @@ function Team() {
             "
           >
             Meet the{" "}
-
             <span className="text-blue-500">
               Team
             </span>
@@ -1438,107 +1503,313 @@ function Team() {
               animate-[fadeUp_0.8s_ease-out_0.4s_forwards]
             "
           >
-            Meet the faculty, students and mentors who
-            contribute to the ETC community through FEETA,
-            ISF and other departmental initiatives.
+            Meet the faculty, students, mentors and members
+            who contribute to the ETC community.
           </p>
 
         </div>
 
 
         {/* =================================================
-            FACULTY DETAILS
+            SECTION BUTTONS
         ================================================= */}
 
-        <div className="mt-20">
+        <div className="mt-14 flex flex-wrap justify-center gap-4">
 
-          <div className="mx-auto mb-12 max-w-3xl text-center">
+          {["faculty", "feeta", "isf", "mentors"].map((section) => {
 
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
-              Department Faculty
-            </p>
+            const label =
+              section === "faculty"
+                ? "Faculty"
+                : section === "feeta"
+                ? "FEETA"
+                : section === "isf"
+                ? "ISF"
+                : "Mentors"
 
-            <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-              Faculty <span className="text-blue-500">Details</span>
-            </h3>
-
-            <p className="mt-4 text-slate-400">
-              Meet the faculty members guiding and supporting
-              the Electronics & Telecommunication department.
-            </p>
-
-          </div>
-
-
-          {/* HOD */}
-
-          <HODCard member={hod} />
-
-
-          {/* Faculty */}
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-            {faculty.map((member, index) => (
-              <FacultyCard
-                key={member.name}
-                member={member}
-                index={index}
-              />
-            ))}
-
-          </div>
+            return (
+              <button
+                key={section}
+                type="button"
+                onClick={() => setActiveSection(section)}
+                className={`
+                  rounded-full
+                  border
+                  px-8
+                  py-3
+                  text-sm
+                  font-bold
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  ${
+                    activeSection === section
+                      ? "border-blue-400 bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+                      : "border-slate-700 bg-slate-900 text-slate-400 hover:border-blue-500/50 hover:text-white"
+                  }
+                `}
+              >
+                {label}
+              </button>
+            )
+          })}
 
         </div>
 
 
         {/* =================================================
-            OFFICE BEARERS
+            FACULTY
         ================================================= */}
 
-        <TeamGroup
-          title="Office Bearers"
-          description="The leadership team responsible for coordinating the departmental forum and its activities."
-          members={teams.officeBearers}
-        />
+        {activeSection === "faculty" && (
+          <div className="mt-20">
+
+            <div className="mb-10 text-center">
+
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
+                Department
+              </p>
+
+              <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                Faculty
+              </h3>
+
+              <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+                Faculty members of the Electronics and Telecommunication
+                Engineering department.
+              </p>
+
+            </div>
+
+
+            {/* HOD */}
+
+            <div className="mb-16">
+
+              <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
+                Head of Department
+              </p>
+
+              <div className="mx-auto max-w-md">
+
+                <FacultyCard
+                  member={faculty[0]}
+                  index={0}
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* FACULTY MEMBERS */}
+
+            <div>
+
+              <p className="mb-8 text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500">
+                Faculty Members
+              </p>
+
+              <div
+                className="
+                  grid
+                  gap-6
+                  sm:grid-cols-2
+                  lg:grid-cols-3
+                "
+              >
+
+                {faculty.slice(1).map((member, index) => (
+                  <FacultyCard
+                    key={member.name}
+                    member={member}
+                    index={index + 1}
+                  />
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+        )}
 
 
         {/* =================================================
             FEETA
         ================================================= */}
 
-        <TeamGroup
-          title="FEETA / Clubs"
-          description="Members involved in FEETA and departmental club activities."
-          members={teams.feeta}
-        />
+        {activeSection === "feeta" && (
+          <div className="mt-20">
+
+            <div className="mb-10 text-center">
+
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
+                FEETA
+              </p>
+
+              <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                FEETA Team
+              </h3>
+
+              <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+                Forum members responsible for student activities,
+                events, coordination and departmental initiatives.
+              </p>
+
+            </div>
+
+
+            <ForumIncharge />
+
+
+            <YearSelector
+              year={feetaYear}
+              setYear={setFeetaYear}
+            />
+
+
+            <div className="mb-8 text-center">
+
+              <h4 className="text-2xl font-bold text-white">
+
+                {feetaYear === "2025"
+                  ? "FEETA — 2025–2026"
+                  : "FEETA — 2024–2025"}
+
+              </h4>
+
+              <p className="mt-2 text-sm text-slate-500">
+                Academic Year
+              </p>
+
+            </div>
+
+
+            <YearMembers
+              members={feetaMembers}
+              type="FEETA"
+            />
+
+          </div>
+        )}
 
 
         {/* =================================================
             ISF
         ================================================= */}
 
-        <TeamGroup
-          title="ISF — Technical Committee"
-          description="The technical committee responsible for technical activities, learning, innovation and engineering initiatives."
-          members={teams.isf}
-        />
+        {activeSection === "isf" && (
+          <div className="mt-20">
+
+            <div className="mb-10 text-center">
+
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
+                ISF
+              </p>
+
+              <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                ISF Team
+              </h3>
+
+              <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+                Students involved in technical activities,
+                innovation, learning and engineering initiatives.
+              </p>
+
+            </div>
+
+
+            <ForumIncharge />
+
+
+            <YearSelector
+              year={isfYear}
+              setYear={setIsfYear}
+            />
+
+
+            <div className="mb-8 text-center">
+
+              <h4 className="text-2xl font-bold text-white">
+
+                {isfYear === "2025"
+                  ? "ISF — 2025–2026"
+                  : "ISF — 2024–2025"}
+
+              </h4>
+
+              <p className="mt-2 text-sm text-slate-500">
+                Academic Year
+              </p>
+
+            </div>
+
+
+            <YearMembers
+              members={isfMembers}
+              type="ISF"
+            />
+
+          </div>
+        )}
 
 
         {/* =================================================
             MENTORS
         ================================================= */}
 
-        <TeamGroup
-          title="Mentors"
-          description="Senior students who provide guidance and support to the committee."
-          members={teams.mentors}
-        />
+        {activeSection === "mentors" && (
+          <div className="mt-20">
+
+            <div className="mb-12 text-center">
+
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
+                Guidance & Support
+              </p>
+
+              <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+                Our{" "}
+                <span className="text-blue-500">
+                  Mentors
+                </span>
+              </h3>
+
+              <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+                Mentors who guide and support students in
+                technical activities, projects and initiatives.
+              </p>
+
+            </div>
+
+
+            <div
+              className="
+                grid
+                gap-6
+                sm:grid-cols-2
+                lg:grid-cols-4
+              "
+            >
+
+              {mentors.map((mentor, index) => (
+                <MentorCard
+                  key={mentor.name}
+                  mentor={mentor}
+                  index={index}
+                />
+              ))}
+
+            </div>
+
+          </div>
+        )}
 
       </div>
 
     </section>
   )
 }
+
 
 export default Team

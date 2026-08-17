@@ -28,20 +28,6 @@
 
 
 /* =========================================================
-   LIGHT MODE ROOT
-========================================================= */
-
-html.light {
-  color-scheme: light;
-}
-
-html.light body {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-
-/* =========================================================
    RESET
 ========================================================= */
 
@@ -58,10 +44,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
   background: #020617;
-  transition:
-    background-color 0.5s ease,
-    color 0.5s ease;
 }
 
 button,
@@ -77,7 +61,17 @@ img {
 
 
 /* =========================================================
-   HERO — BACKGROUND GLOW
+   SELECTION
+========================================================= */
+
+::selection {
+  background: rgba(37, 99, 235, 0.35);
+  color: white;
+}
+
+
+/* =========================================================
+   HERO — MAIN GLOW
 ========================================================= */
 
 @keyframes pulseGlow {
@@ -94,18 +88,26 @@ img {
 }
 
 
+/* =========================================================
+   HERO — MOVING BLOBS
+========================================================= */
+
 @keyframes blobMove {
   0%,
   100% {
     transform: translate(0, 0) scale(1);
   }
 
-  33% {
-    transform: translate(100px, 80px) scale(1.15);
+  25% {
+    transform: translate(70px, -40px) scale(1.1);
   }
 
-  66% {
-    transform: translate(40px, -80px) scale(0.9);
+  50% {
+    transform: translate(120px, 80px) scale(1.2);
+  }
+
+  75% {
+    transform: translate(30px, 100px) scale(0.9);
   }
 }
 
@@ -116,12 +118,16 @@ img {
     transform: translate(0, 0) scale(1);
   }
 
-  33% {
-    transform: translate(-100px, -60px) scale(1.15);
+  25% {
+    transform: translate(-70px, 40px) scale(1.1);
   }
 
-  66% {
-    transform: translate(-40px, 80px) scale(0.9);
+  50% {
+    transform: translate(-120px, -80px) scale(1.2);
+  }
+
+  75% {
+    transform: translate(-30px, -100px) scale(0.9);
   }
 }
 
@@ -137,6 +143,22 @@ img {
 
   to {
     transform: translate(50px, 50px);
+  }
+}
+
+
+/* =========================================================
+   HERO — GRID PULSE
+========================================================= */
+
+@keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.02;
+  }
+
+  50% {
+    opacity: 0.08;
   }
 }
 
@@ -202,6 +224,34 @@ img {
 
 
 /* =========================================================
+   HERO — FLOATING PARTICLES
+========================================================= */
+
+@keyframes floatingParticle {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.2;
+  }
+
+  25% {
+    transform: translate3d(30px, -40px, 0) scale(1.4);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate3d(-20px, -80px, 0) scale(0.8);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translate3d(-50px, -30px, 0) scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+
+/* =========================================================
    HERO — ORBITS
 ========================================================= */
 
@@ -228,7 +278,25 @@ img {
 
 
 /* =========================================================
-   HERO — LOGO
+   HERO — ORBIT PULSE
+========================================================= */
+
+@keyframes orbitPulse {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   HERO — LOGO INTRO
 ========================================================= */
 
 @keyframes heroLogo {
@@ -248,6 +316,10 @@ img {
 }
 
 
+/* =========================================================
+   HERO — LOGO FLOAT
+========================================================= */
+
 @keyframes logoFloat {
   0%,
   100% {
@@ -259,6 +331,26 @@ img {
   }
 }
 
+
+/* =========================================================
+   HERO — LOGO BREATHING
+========================================================= */
+
+@keyframes logoBreath {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+
+/* =========================================================
+   HERO — ROTATING RINGS
+========================================================= */
 
 @keyframes spinSlow {
   from {
@@ -315,6 +407,49 @@ img {
 }
 
 
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================================
+   HERO — TEXT PULSE
+========================================================= */
+
 @keyframes pulseText {
   0%,
   100% {
@@ -330,7 +465,754 @@ img {
 
 
 /* =========================================================
-   HERO — SCROLL
+   HERO — TEXT GLOW
+========================================================= */
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.15);
+  }
+
+  50% {
+    text-shadow:
+      0 0 15px rgba(59, 130, 246, 0.5),
+      0 0 35px rgba(6, 182, 212, 0.2);
+  }
+}
+
+
+/* =========================================================
+   HERO — GLITCH
+========================================================= */
+
+@keyframes glitch {
+  0%,
+  90%,
+  100% {
+    transform: translate(0);
+  }
+
+  92% {
+    transform: translate(-2px, 1px);
+  }
+
+  94% {
+    transform: translate(2px, -1px);
+  }
+
+  96% {
+    transform: translate(-1px, 2px);
+  }
+
+  98% {
+    transform: translate(1px, -2px);
+  }
+}
+
+
+/* =========================================================
+   HERO — ELECTRIC PULSE
+========================================================= */
+
+@keyframes electricPulse {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   HERO — ENERGY BEAM
+========================================================= */
+
+@keyframes energyBeam {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(120%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   HERO — ENERGY LINE
+========================================================= */
+
+@keyframes energyLine {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+  }
+
+  30% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   HERO — ELECTRIC DOT
+========================================================= */
+
+@keyframes electricDot {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   HERO — TECH CIRCUIT
+========================================================= */
+
+@keyframes circuitPulse {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes circuitFlow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* =========================================================
+   HERO — ROTATING TECH RING
+========================================================= */
+
+@keyframes techRing {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+/* =========================================================
+   HERO — HOLOGRAM
+========================================================= */
+
+@keyframes hologram {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(0) scaleY(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: translateY(-5px) scaleY(1.02);
+  }
+}
+
+
+/* =========================================================
+   HERO — HOLOGRAM SCAN
+========================================================= */
+
+@keyframes hologramScan {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+
+/* =========================================================
+   HERO — DIGITAL FLICKER
+========================================================= */
+
+@keyframes digitalFlicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  2% {
+    opacity: 0.7;
+  }
+
+  4% {
+    opacity: 1;
+  }
+
+  7% {
+    opacity: 0.85;
+  }
+
+  10% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   HERO — FLOATING ICONS
+========================================================= */
+
+@keyframes floatingIcon {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(6deg);
+  }
+}
+
+
+/* =========================================================
+   HERO — ROTATING GEAR
+========================================================= */
+
+@keyframes gearRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   HERO — REVERSE GEAR
+========================================================= */
+
+@keyframes gearRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+/* =========================================================
+   HERO — ELECTRIC VEHICLE
+========================================================= */
+
+/*
+   Used for the engineering EV/robot scene.
+*/
+
+@keyframes evDrive {
+  0% {
+    transform: translateX(-120vw);
+  }
+
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+
+@keyframes evDriveSlow {
+  0% {
+    transform: translateX(-110vw);
+  }
+
+  45% {
+    transform: translateX(0);
+  }
+
+  55% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(110vw);
+  }
+}
+
+
+/* =========================================================
+   EV — VEHICLE FLOAT
+========================================================= */
+
+@keyframes evFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+
+/* =========================================================
+   EV — VEHICLE BOUNCE
+========================================================= */
+
+@keyframes vehicleBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-2px);
+  }
+
+  50% {
+    transform: translateY(1px);
+  }
+
+  75% {
+    transform: translateY(-3px);
+  }
+}
+
+
+/* =========================================================
+   EV — WHEEL ROTATION
+========================================================= */
+
+@keyframes wheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   EV — HEADLIGHT
+========================================================= */
+
+@keyframes headlightPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 1;
+    filter: brightness(2);
+  }
+}
+
+
+/* =========================================================
+   EV — TAIL LIGHT
+========================================================= */
+
+@keyframes tailLight {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   EV — UNDERGLOW
+========================================================= */
+
+@keyframes vehicleGlow {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleX(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scaleX(1.15);
+  }
+}
+
+
+/* =========================================================
+   EV — ROAD LIGHT
+========================================================= */
+
+@keyframes roadLight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   EV — SPEED LINES
+========================================================= */
+
+@keyframes speedLine {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(-250%);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   ROBOT — MOVEMENT
+========================================================= */
+
+@keyframes robotMove {
+  0% {
+    transform: translateX(-100vw);
+  }
+
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+
+/* =========================================================
+   ROBOT — BOB
+========================================================= */
+
+@keyframes robotBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================================
+   ROBOT — WHEEL
+========================================================= */
+
+@keyframes robotWheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+
+/* =========================================================
+   ROBOT — SENSOR SCAN
+========================================================= */
+
+@keyframes sensorScan {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scaleX(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+}
+
+
+/* =========================================================
+   ROBOT — SENSOR BLINK
+========================================================= */
+
+@keyframes sensorBlink {
+  0%,
+  45% {
+    opacity: 0.3;
+  }
+
+  50%,
+  55% {
+    opacity: 1;
+  }
+
+  60%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+
+/* =========================================================
+   ROBOT — LINE FOLLOWING
+========================================================= */
+
+@keyframes lineFollowing {
+  0% {
+    transform: translateX(-20px);
+  }
+
+  25% {
+    transform: translateX(10px);
+  }
+
+  50% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(15px);
+  }
+
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+
+/* =========================================================
+   ROBOT — SEARCH LIGHT
+========================================================= */
+
+@keyframes robotSearch {
+  0%,
+  100% {
+    transform: rotate(-15deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: rotate(15deg);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   TECH PARTICLE BURST
+========================================================= */
+
+@keyframes particleBurst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   DATA STREAM
+========================================================= */
+
+@keyframes dataStream {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   DIGITAL DASH
+========================================================= */
+
+@keyframes digitalDash {
+  0% {
+    stroke-dashoffset: 300;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* =========================================================
+   WAVE
+========================================================= */
+
+@keyframes waveMove {
+  0%,
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+
+  50% {
+    transform: translateX(-30px) scaleY(1.2);
+  }
+}
+
+
+/* =========================================================
+   RADAR
+========================================================= */
+
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RADAR PING
+========================================================= */
+
+@keyframes radarPing {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   TECH NODE
+========================================================= */
+
+@keyframes techNode {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   SCROLL
 ========================================================= */
 
 @keyframes scrollDot {
@@ -355,6 +1237,21 @@ img {
 
 
 /* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+@keyframes buttonShine {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+
+/* =========================================================
    TEAM — CARD
 ========================================================= */
 
@@ -362,6 +1259,19 @@ img {
   from {
     opacity: 0;
     transform: translateY(35px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes teamCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(0.94);
   }
 
   to {
@@ -384,6 +1294,37 @@ img {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+
+@keyframes teamHeadingReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================================
+   TEAM — AVATAR
+========================================================= */
+
+@keyframes avatarPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(59, 130, 246, 0.2),
+      0 0 50px rgba(6, 182, 212, 0.08);
   }
 }
 
@@ -436,7 +1377,7 @@ img {
   0%,
   100% {
     transform: translate(0, 0);
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   50% {
@@ -447,147 +1388,74 @@ img {
 
 
 /* =========================================================
-   AVATAR
+   SECTION REVEAL
 ========================================================= */
 
-@keyframes avatarPulse {
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   GALLERY — FLOAT
+========================================================= */
+
+@keyframes galleryFloat {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.05);
+    transform: translateY(0) rotate(0deg);
   }
 
   50% {
-    box-shadow: 0 0 0 15px rgba(59, 130, 246, 0.08);
+    transform: translateY(-10px) rotate(1deg);
   }
 }
 
 
 /* =========================================================
-   TEAM CARD REVEAL
+   CARD HOVER GLOW
 ========================================================= */
 
-@keyframes teamCardReveal {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
+@keyframes cardGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-
-/* =========================================================
-   TEAM HEADING REVEAL
-========================================================= */
-
-@keyframes teamHeadingReveal {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  50% {
+    box-shadow:
+      0 0 30px rgba(59, 130, 246, 0.15),
+      0 0 70px rgba(6, 182, 212, 0.06);
   }
 }
 
 
 /* =========================================================
-   LIGHT MODE — TEAM ONLY
+   NAVBAR
 ========================================================= */
 
-html.light .light-team-section {
-  background: #f8fafc;
-}
+@keyframes navGlow {
+  0%,
+  100% {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0);
+  }
 
-
-html.light .light-team-card {
-  background: #ffffff;
-  border-color: #e2e8f0;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-}
-
-
-html.light .light-team-card:hover {
-  border-color: rgba(59, 130, 246, 0.6);
-  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
-}
-
-
-html.light .light-team-photo {
-  background: linear-gradient(
-    135deg,
-    #e2e8f0,
-    #f8fafc,
-    #e0f2fe
-  );
-}
-
-
-html.light .light-team-name {
-  color: #0f172a;
-}
-
-
-html.light .light-team-heading {
-  color: #0f172a;
+  50% {
+    box-shadow: 0 5px 35px rgba(37, 99, 235, 0.08);
+  }
 }
 
 
 /* =========================================================
-   TEAM LIGHT MODE — DESCRIPTION
-========================================================= */
-
-html.light .light-team-section .text-slate-400 {
-  color: #64748b;
-}
-
-
-html.light .light-team-section .text-slate-500 {
-  color: #64748b;
-}
-
-
-/* =========================================================
-   TEAM LIGHT MODE — DIVIDERS
-========================================================= */
-
-html.light .light-team-section .bg-slate-800 {
-  background-color: #e2e8f0;
-}
-
-
-/* =========================================================
-   TEAM LIGHT MODE — CARD TEXT HOVER
-========================================================= */
-
-html.light
-.light-team-card
-.group-hover\:text-slate-300:hover {
-  color: #334155;
-}
-
-
-/* =========================================================
-   LIGHT MODE — SMOOTH TRANSITIONS
-========================================================= */
-
-html.light .light-team-section,
-html.light .light-team-card,
-html.light .light-team-photo {
-  transition:
-    background-color 0.5s ease,
-    border-color 0.5s ease,
-    box-shadow 0.5s ease;
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
+   REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -613,5 +1481,2041 @@ html.light .light-team-photo {
 
   body {
     overflow-x: hidden;
+  }
+}
+
+
+/* =========================================================
+   MOBILE — REDUCE LARGE EFFECTS
+========================================================= */
+
+@media (max-width: 768px) {
+  .hero-orbit-large {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+
+  .hero-orbit-small {
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+
+  .ev-vehicle {
+    transform: scale(0.75);
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+========================================================= */
+
+@media (max-width: 480px) {
+  .ev-vehicle {
+    transform: scale(0.6);
+  }
+}
+/* =========================================================
+   HERO LOGO ENTRY
+========================================================= */
+
+@keyframes fadeLogoLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+
+@keyframes fadeLogoRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px) scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   ROBOT CAR MOVEMENT
+========================================================= */
+
+@keyframes robotCarMove {
+
+  0% {
+    transform: translateX(-20vw) translateY(0) rotate(0deg);
+  }
+
+  8% {
+    transform: translateX(0vw) translateY(-3px) rotate(-1deg);
+  }
+
+  25% {
+    transform: translateX(20vw) translateY(2px) rotate(1deg);
+  }
+
+  45% {
+    transform: translateX(42vw) translateY(-2px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateX(48vw) translateY(0) rotate(0deg);
+  }
+
+  55% {
+    transform: translateX(48vw) translateY(0) rotate(0deg);
+  }
+
+  75% {
+    transform: translateX(25vw) translateY(-2px) rotate(1deg);
+  }
+
+  92% {
+    transform: translateX(2vw) translateY(2px) rotate(-1deg);
+  }
+
+  100% {
+    transform: translateX(-20vw) translateY(0) rotate(0deg);
+  }
+}
+
+
+/* =========================================================
+   ROBOT SENSOR SCAN
+========================================================= */
+
+@keyframes sensorScan {
+
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(0.6);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: translateX(-50%) scaleX(1.5);
+    opacity: 0.9;
+  }
+}
+
+
+/* =========================================================
+   TRACK GLOW
+========================================================= */
+
+@keyframes trackGlow {
+
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+/* =========================================================
+   ENGINEERING VEHICLE
+========================================================= */
+
+.engineering-car {
+  position: absolute;
+  left: -220px;
+  bottom: 12px;
+  width: 190px;
+  height: 90px;
+  animation: engineeringCarMove 16s linear infinite;
+  transform-origin: center;
+}
+
+/* Main chassis */
+
+.car-chassis {
+  position: absolute;
+  left: 15px;
+  bottom: 24px;
+  width: 160px;
+  height: 42px;
+  border-radius: 12px 12px 8px 8px;
+  background: linear-gradient(
+    145deg,
+    #475569,
+    #1e293b 55%,
+    #0f172a
+  );
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  box-shadow:
+    0 0 20px rgba(37, 99, 235, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+}
+
+/* Top electronics board */
+
+.car-board {
+  position: absolute;
+  left: 22px;
+  top: -27px;
+  width: 116px;
+  height: 30px;
+  border-radius: 5px;
+  background: #172554;
+  border: 2px solid #334155;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+/* Microcontroller */
+
+.micro-controller {
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  width: 34px;
+  height: 18px;
+  border-radius: 3px;
+  background: #020617;
+  border: 1px solid #475569;
+}
+
+.chip-line {
+  position: absolute;
+  right: -4px;
+  width: 4px;
+  height: 2px;
+  background: #facc15;
+}
+
+.chip-line:nth-child(1) {
+  top: 3px;
+}
+
+.chip-line:nth-child(2) {
+  top: 8px;
+}
+
+.chip-line:nth-child(3) {
+  top: 13px;
+}
+
+/* Breadboard */
+
+.breadboard {
+  position: absolute;
+  right: 8px;
+  top: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 5px);
+  gap: 4px;
+}
+
+.breadboard div {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+/* Electronics wires */
+
+.wire {
+  position: absolute;
+  width: 2px;
+  border-radius: 999px;
+  transform-origin: top;
+}
+
+.wire-red {
+  height: 22px;
+  left: 53px;
+  top: 10px;
+  background: #ef4444;
+  transform: rotate(35deg);
+}
+
+.wire-blue {
+  height: 20px;
+  left: 67px;
+  top: 8px;
+  background: #3b82f6;
+  transform: rotate(-25deg);
+}
+
+.wire-yellow {
+  height: 18px;
+  left: 79px;
+  top: 9px;
+  background: #facc15;
+  transform: rotate(30deg);
+}
+
+.wire-cyan {
+  height: 17px;
+  left: 91px;
+  top: 8px;
+  background: #22d3ee;
+  transform: rotate(-35deg);
+}
+
+/* =========================================================
+   ULTRASONIC SENSOR BAR
+========================================================= */
+
+.sensor-bar {
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
+  display: flex;
+  gap: 7px;
+}
+
+.ultrasonic-sensor {
+  position: relative;
+  width: 45px;
+  height: 25px;
+  border-radius: 5px;
+  background: #334155;
+  border: 1px solid #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transform: translateY(7px);
+}
+
+.sensor-eye {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #0f172a 35%,
+    #94a3b8 38%,
+    #475569 65%,
+    #1e293b 100%
+  );
+  border: 1px solid #94a3b8;
+  box-shadow: 0 0 7px rgba(34, 211, 238, 0.35);
+  animation: sensorPulse 1.5s ease-in-out infinite;
+}
+
+.second-sensor .sensor-eye {
+  animation-delay: 0.3s;
+}
+
+/* Front LED */
+
+.front-led {
+  position: absolute;
+  right: 7px;
+  bottom: 15px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow:
+    0 0 5px #22d3ee,
+    0 0 15px rgba(34, 211, 238, 0.8);
+  animation: vehicleLed 1s ease-in-out infinite;
+}
+
+/* =========================================================
+   WHEELS
+========================================================= */
+
+.car-wheel {
+  position: absolute;
+  bottom: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #020617;
+  border: 4px solid #111827;
+  box-shadow:
+    0 0 0 2px #334155,
+    inset 0 0 0 3px #0f172a;
+  z-index: 10;
+  animation: wheelSpin 0.45s linear infinite;
+}
+
+.wheel-left {
+  left: 22px;
+}
+
+.wheel-right {
+  right: 22px;
+}
+
+.wheel-inner {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 2px solid #64748b;
+}
+
+.wheel-hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #60a5fa;
+  box-shadow: 0 0 5px #60a5fa;
+}
+
+/* =========================================================
+   CAR SHADOW
+========================================================= */
+
+.car-shadow {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  width: 175px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  filter: blur(6px);
+  transform: translateY(12px);
+}
+
+/* =========================================================
+   CAR MOVEMENT
+========================================================= */
+
+@keyframes engineeringCarMove {
+  0% {
+    left: -220px;
+    transform: scaleX(1);
+  }
+
+  8% {
+    left: 5%;
+  }
+
+  35% {
+    left: 40%;
+  }
+
+  48% {
+    left: 72%;
+  }
+
+  50% {
+    left: calc(100% - 180px);
+    transform: scaleX(1);
+  }
+
+  51% {
+    transform: scaleX(-1);
+  }
+
+  53% {
+    left: calc(100% - 180px);
+  }
+
+  70% {
+    left: 60%;
+  }
+
+  90% {
+    left: 15%;
+  }
+
+  98% {
+    left: -220px;
+  }
+
+  100% {
+    left: -220px;
+    transform: scaleX(-1);
+  }
+}
+
+/* Wheel rotation */
+
+@keyframes wheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sensor glow */
+
+@keyframes sensorPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 4px rgba(34, 211, 238, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 8px rgba(34, 211, 238, 0.7),
+      0 0 16px rgba(34, 211, 238, 0.3);
+  }
+}
+
+/* LED */
+
+@keyframes vehicleLed {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .engineering-car {
+    transform: scale(0.72);
+    transform-origin: bottom left;
+  }
+
+  @keyframes engineeringCarMove {
+    0% {
+      left: -180px;
+      transform: scale(0.72);
+    }
+
+    45% {
+      left: 65%;
+      transform: scale(0.72);
+    }
+
+    50% {
+      left: calc(100% - 140px);
+      transform: scale(0.72);
+    }
+
+    51% {
+      transform: scaleX(-0.72) scaleY(0.72);
+    }
+
+    95% {
+      left: -180px;
+      transform: scaleX(-0.72) scaleY(0.72);
+    }
+
+    100% {
+      left: -180px;
+      transform: scale(0.72);
+    }
+  }
+}
+
+/* =========================================================
+   ENGINEERING PROJECT BACKGROUND
+========================================================= */
+
+.project-background {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CIRCUIT LINES
+========================================================= */
+
+.circuit-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.25),
+    transparent
+  );
+  opacity: 0.35;
+}
+
+.circuit-line-1 {
+  width: 280px;
+  left: 4%;
+  top: 32%;
+  transform: rotate(18deg);
+  animation: circuitMove1 8s ease-in-out infinite;
+}
+
+.circuit-line-2 {
+  width: 220px;
+  right: 5%;
+  top: 25%;
+  transform: rotate(-20deg);
+  animation: circuitMove2 10s ease-in-out infinite;
+}
+
+.circuit-line-3 {
+  width: 300px;
+  left: 15%;
+  bottom: 28%;
+  transform: rotate(-10deg);
+  animation: circuitMove1 12s ease-in-out infinite reverse;
+}
+
+.circuit-line-4 {
+  width: 250px;
+  right: 15%;
+  bottom: 35%;
+  transform: rotate(15deg);
+  animation: circuitMove2 9s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   ROBOTIC ARM
+========================================================= */
+
+.robot-arm-project {
+  position: absolute;
+  left: 5%;
+  bottom: 22%;
+  width: 150px;
+  height: 190px;
+  opacity: 0.12;
+  transform: scale(0.8);
+  animation: robotFloat 6s ease-in-out infinite;
+}
+
+.robot-base {
+  position: absolute;
+  bottom: 0;
+  left: 35px;
+  width: 80px;
+  height: 18px;
+  border-radius: 8px;
+  background: #475569;
+  border: 1px solid #64748b;
+}
+
+.robot-joint {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 4px solid #64748b;
+}
+
+.robot-joint-1 {
+  left: 62px;
+  bottom: 18px;
+}
+
+.robot-joint-2 {
+  left: 70px;
+  bottom: 92px;
+}
+
+.robot-arm-1 {
+  position: absolute;
+  left: 73px;
+  bottom: 40px;
+  width: 15px;
+  height: 75px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #334155,
+    #94a3b8,
+    #334155
+  );
+  transform: rotate(-25deg);
+  transform-origin: bottom;
+}
+
+.robot-arm-2 {
+  position: absolute;
+  left: 78px;
+  bottom: 100px;
+  width: 13px;
+  height: 65px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #334155,
+    #94a3b8,
+    #334155
+  );
+  transform: rotate(35deg);
+  transform-origin: bottom;
+}
+
+.robot-gripper {
+  position: absolute;
+  left: 103px;
+  bottom: 151px;
+  width: 35px;
+  height: 25px;
+}
+
+.robot-gripper span {
+  position: absolute;
+  width: 6px;
+  height: 25px;
+  border-radius: 5px;
+  background: #94a3b8;
+}
+
+.robot-gripper span:first-child {
+  left: 4px;
+  transform: rotate(25deg);
+}
+
+.robot-gripper span:last-child {
+  right: 4px;
+  transform: rotate(-25deg);
+}
+
+
+/* =========================================================
+   DRONE
+========================================================= */
+
+.drone-project {
+  position: absolute;
+  right: 8%;
+  top: 17%;
+  width: 170px;
+  height: 100px;
+  opacity: 0.11;
+  animation: droneFloat 7s ease-in-out infinite;
+}
+
+.drone-body {
+  position: absolute;
+  left: 55px;
+  top: 35px;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  background: #334155;
+  border: 1px solid #64748b;
+  transform: rotate(-5deg);
+}
+
+.drone-arm {
+  position: absolute;
+  top: 49px;
+  width: 70px;
+  height: 6px;
+  border-radius: 5px;
+  background: #475569;
+}
+
+.drone-arm-left {
+  left: 0;
+  transform: rotate(15deg);
+}
+
+.drone-arm-right {
+  right: 0;
+  transform: rotate(-15deg);
+}
+
+.drone-propeller {
+  position: absolute;
+  width: 48px;
+  height: 4px;
+  border-radius: 50%;
+  background: #94a3b8;
+  animation: propellerSpin 0.4s linear infinite;
+}
+
+.propeller-left {
+  left: 8px;
+  top: 32px;
+}
+
+.propeller-right {
+  right: 8px;
+  top: 32px;
+}
+
+.drone-light {
+  position: absolute;
+  bottom: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: droneLight 1.5s ease-in-out infinite;
+}
+
+.drone-light-1 {
+  left: 16px;
+  background: #22d3ee;
+  box-shadow: 0 0 10px #22d3ee;
+}
+
+.drone-light-2 {
+  right: 16px;
+  background: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+}
+
+
+/* =========================================================
+   SOLAR TRACKER
+========================================================= */
+
+.solar-project {
+  position: absolute;
+  right: 6%;
+  bottom: 18%;
+  width: 150px;
+  height: 130px;
+  opacity: 0.1;
+  animation: solarFloat 8s ease-in-out infinite;
+}
+
+.solar-panel {
+  position: absolute;
+  left: 25px;
+  top: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 35px);
+  grid-template-rows: repeat(2, 28px);
+  gap: 2px;
+  padding: 3px;
+  border: 2px solid #64748b;
+  background: #0f172a;
+  transform: rotate(-15deg) skewY(5deg);
+}
+
+.solar-cell {
+  background: linear-gradient(
+    135deg,
+    #1e3a8a,
+    #172554
+  );
+  border: 1px solid #3b82f6;
+}
+
+.solar-stand {
+  position: absolute;
+  left: 74px;
+  top: 58px;
+  width: 7px;
+  height: 55px;
+  background: #64748b;
+  transform: rotate(-10deg);
+}
+
+.solar-base {
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  width: 80px;
+  height: 10px;
+  border-radius: 5px;
+  background: #475569;
+}
+
+
+/* =========================================================
+   FLOATING CIRCUIT BOARD
+========================================================= */
+
+.floating-board {
+  position: absolute;
+  left: 38%;
+  top: 15%;
+  width: 90px;
+  height: 55px;
+  border-radius: 7px;
+  background: #064e3b;
+  border: 1px solid #10b981;
+  opacity: 0.1;
+  animation: boardFloat 6s ease-in-out infinite;
+}
+
+.board-chip {
+  position: absolute;
+  left: 34px;
+  top: 18px;
+  width: 24px;
+  height: 20px;
+  background: #020617;
+  border: 1px solid #64748b;
+}
+
+.board-light {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.blue-light {
+  left: 10px;
+  top: 10px;
+  background: #3b82f6;
+  box-shadow: 0 0 8px #3b82f6;
+}
+
+.red-light {
+  right: 10px;
+  top: 10px;
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+.green-light {
+  left: 10px;
+  bottom: 10px;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.board-trace {
+  position: absolute;
+  height: 1px;
+  background: #22c55e;
+  opacity: 0.7;
+}
+
+.trace-1 {
+  left: 12px;
+  top: 28px;
+  width: 20px;
+}
+
+.trace-2 {
+  right: 8px;
+  top: 31px;
+  width: 22px;
+}
+
+.trace-3 {
+  left: 10px;
+  bottom: 18px;
+  width: 25px;
+}
+
+
+/* =========================================================
+   PROJECT VEHICLE
+========================================================= */
+
+.vehicle-track {
+  overflow: hidden;
+}
+
+
+/* Main vehicle */
+
+.project-vehicle {
+  position: absolute;
+  left: -230px;
+  bottom: 10px;
+  width: 210px;
+  height: 125px;
+  animation: projectVehicleMove 18s linear infinite;
+  transform-origin: center bottom;
+}
+
+
+/* =========================================================
+   VEHICLE SHADOW
+========================================================= */
+
+.vehicle-shadow {
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+  width: 190px;
+  height: 15px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  filter: blur(7px);
+}
+
+
+/* =========================================================
+   WOODEN CHASSIS
+========================================================= */
+
+.vehicle-chassis {
+  position: absolute;
+  left: 15px;
+  bottom: 27px;
+  width: 180px;
+  height: 55px;
+  border-radius: 5px;
+  background: linear-gradient(
+    145deg,
+    #b7793f,
+    #8b572a 45%,
+    #6b3f1d
+  );
+  border: 2px solid #d49a5b;
+  box-shadow:
+    inset 0 3px 5px rgba(255, 255, 255, 0.15),
+    0 5px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Wood grain */
+
+.wooden-platform {
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  width: 170px;
+  height: 5px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(80, 40, 15, 0.4) 0px,
+    rgba(80, 40, 15, 0.4) 18px,
+    transparent 18px,
+    transparent 35px
+  );
+}
+
+
+/* Metal support */
+
+.metal-support {
+  position: absolute;
+  left: 10px;
+  bottom: 3px;
+  width: 160px;
+  height: 7px;
+  background: #64748b;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   WHEELS
+========================================================= */
+
+.project-wheel {
+  position: absolute;
+  bottom: 0;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background: #111827;
+  border: 5px solid #020617;
+  box-shadow:
+    0 0 0 2px #334155,
+    inset 0 0 0 2px #1e293b;
+  z-index: 10;
+  animation: projectWheelSpin 0.45s linear infinite;
+}
+
+.project-wheel-back {
+  left: 22px;
+}
+
+.project-wheel-front {
+  right: 22px;
+}
+
+.wheel-tread {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 2px dashed #475569;
+}
+
+.yellow-rim {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: #eab308;
+  border: 2px solid #facc15;
+  box-shadow:
+    inset 0 0 4px rgba(0, 0, 0, 0.5),
+    0 0 5px rgba(234, 179, 8, 0.25);
+}
+
+.wheel-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #1f2937;
+}
+
+
+/* =========================================================
+   BREADBOARD
+========================================================= */
+
+.project-breadboard {
+  position: absolute;
+  left: 28px;
+  top: -25px;
+  width: 90px;
+  height: 30px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  border: 2px solid #94a3b8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.breadboard-holes {
+  display: grid;
+  grid-template-columns: repeat(9, 5px);
+  gap: 4px;
+  padding: 7px;
+}
+
+.breadboard-holes span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #64748b;
+}
+
+
+/* =========================================================
+   MICROCONTROLLER
+========================================================= */
+
+.project-controller {
+  position: absolute;
+  right: 20px;
+  top: -28px;
+  width: 55px;
+  height: 34px;
+  border-radius: 3px;
+  background: #164e63;
+  border: 2px solid #0e7490;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.2);
+}
+
+.controller-chip {
+  position: absolute;
+  left: 16px;
+  top: 7px;
+  width: 22px;
+  height: 15px;
+  background: #020617;
+  border-radius: 2px;
+}
+
+.controller-pin {
+  position: absolute;
+  width: 4px;
+  height: 2px;
+  background: #facc15;
+}
+
+.pin-1 {
+  top: 6px;
+  left: -4px;
+}
+
+.pin-2 {
+  top: 12px;
+  left: -4px;
+}
+
+.pin-3 {
+  top: 18px;
+  right: -4px;
+}
+
+.pin-4 {
+  top: 24px;
+  right: -4px;
+}
+
+
+/* =========================================================
+   JUMPER WIRES
+========================================================= */
+
+.jumper-wire {
+  position: absolute;
+  width: 3px;
+  border-radius: 999px;
+  transform-origin: top;
+}
+
+.jumper-red {
+  height: 40px;
+  left: 48px;
+  top: -20px;
+  background: #ef4444;
+  transform: rotate(28deg);
+}
+
+.jumper-blue {
+  height: 45px;
+  left: 62px;
+  top: -22px;
+  background: #2563eb;
+  transform: rotate(-25deg);
+}
+
+.jumper-yellow {
+  height: 36px;
+  left: 75px;
+  top: -18px;
+  background: #facc15;
+  transform: rotate(35deg);
+}
+
+.jumper-green {
+  height: 40px;
+  left: 88px;
+  top: -20px;
+  background: #22c55e;
+  transform: rotate(-20deg);
+}
+
+.jumper-purple {
+  height: 35px;
+  left: 101px;
+  top: -18px;
+  background: #a855f7;
+  transform: rotate(30deg);
+}
+
+
+/* =========================================================
+   ULTRASONIC SENSOR
+========================================================= */
+
+.ultrasonic-board {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  width: 65px;
+  height: 34px;
+  border-radius: 5px;
+  background: #1e3a8a;
+  border: 2px solid #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.ultrasonic-eye {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #020617 25%,
+    #64748b 30%,
+    #cbd5e1 45%,
+    #334155 70%
+  );
+  border: 2px solid #94a3b8;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
+  animation: ultrasonicPulse 1.4s ease-in-out infinite;
+}
+
+.ultrasonic-eye:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+
+/* =========================================================
+   VEHICLE LED
+========================================================= */
+
+.vehicle-led {
+  position: absolute;
+  right: 7px;
+  bottom: 20px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow:
+    0 0 6px #22d3ee,
+    0 0 15px #22d3ee;
+  animation: vehicleLedBlink 1s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   VEHICLE MOVEMENT
+========================================================= */
+
+@keyframes projectVehicleMove {
+
+  0% {
+    left: -230px;
+    transform: scaleX(1);
+  }
+
+  8% {
+    left: 5%;
+  }
+
+  25% {
+    left: 25%;
+  }
+
+  45% {
+    left: 55%;
+  }
+
+  48% {
+    left: calc(100% - 220px);
+  }
+
+  50% {
+    left: calc(100% - 220px);
+    transform: scaleX(1);
+  }
+
+  51% {
+    transform: scaleX(-1);
+  }
+
+  53% {
+    left: calc(100% - 220px);
+  }
+
+  70% {
+    left: 55%;
+  }
+
+  85% {
+    left: 25%;
+  }
+
+  96% {
+    left: -230px;
+  }
+
+  100% {
+    left: -230px;
+    transform: scaleX(-1);
+  }
+}
+
+
+/* =========================================================
+   WHEEL ROTATION
+========================================================= */
+
+@keyframes projectWheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   ULTRASONIC SENSOR
+========================================================= */
+
+@keyframes ultrasonicPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(34, 211, 238, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 10px rgba(34, 211, 238, 0.7),
+      0 0 20px rgba(34, 211, 238, 0.3);
+  }
+}
+
+
+/* =========================================================
+   VEHICLE LED
+========================================================= */
+
+@keyframes vehicleLedBlink {
+
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   BACKGROUND PROJECT ANIMATIONS
+========================================================= */
+
+@keyframes robotFloat {
+
+  0%,
+  100% {
+    transform: scale(0.8) translateY(0);
+  }
+
+  50% {
+    transform: scale(0.8) translateY(-15px);
+  }
+}
+
+
+@keyframes droneFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-20px, -15px) rotate(3deg);
+  }
+}
+
+
+@keyframes propellerSpin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes droneLight {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes solarFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+
+@keyframes boardFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(4deg);
+  }
+}
+
+
+@keyframes circuitMove1 {
+
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+
+@keyframes circuitMove2 {
+
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .robot-arm-project {
+    left: -20px;
+    transform: scale(0.55);
+  }
+
+  .drone-project {
+    right: -30px;
+    transform: scale(0.65);
+  }
+
+  .solar-project {
+    right: -30px;
+    transform: scale(0.65);
+  }
+
+  .floating-board {
+    left: 20%;
+    transform: scale(0.7);
+  }
+
+  .project-vehicle {
+    transform: scale(0.75);
+    transform-origin: center bottom;
+  }
+
+}
+
+/* =========================================================
+   HERO — ELECTRONICS ANIMATIONS
+========================================================= */
+
+@keyframes vehicleDrive {
+  0% {
+    transform: translateX(-250px);
+  }
+
+  45% {
+    transform: translateX(calc(100vw + 250px));
+  }
+
+  45.01% {
+    transform: translateX(calc(100vw + 250px)) scaleX(-1);
+  }
+
+  50% {
+    transform: translateX(calc(100vw + 250px)) scaleX(-1);
+  }
+
+  95% {
+    transform: translateX(-250px) scaleX(-1);
+  }
+
+  95.01% {
+    transform: translateX(-250px) scaleX(1);
+  }
+
+  100% {
+    transform: translateX(-250px) scaleX(1);
+  }
+}
+
+
+@keyframes droneFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(-25px, -18px, 0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translate3d(-5px, 12px, 0) rotate(2deg);
+  }
+
+  75% {
+    transform: translate3d(25px, -10px, 0) rotate(-2deg);
+  }
+}
+
+
+@keyframes propeller {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+@keyframes chipFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(25px, -30px) rotate(8deg);
+  }
+}
+
+
+@keyframes chipFloatReverse {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(6deg);
+  }
+
+  50% {
+    transform: translate(-30px, 25px) rotate(-8deg);
+  }
+}
+
+
+@keyframes componentFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(12deg);
+  }
+
+  50% {
+    transform: translate(25px, -20px) rotate(20deg);
+  }
+}
+
+
+@keyframes componentFloatReverse {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-25px, 20px) rotate(-8deg);
+  }
+}
+
+
+@keyframes projectFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(20px, -18px) rotate(3deg);
+  }
+}
+/* =========================================================
+   HERO — ENGINEERING PROJECT ANIMATIONS
+========================================================= */
+
+/* Main project vehicle movement */
+@keyframes projectCarMove {
+  0% {
+    transform: translateX(-260px);
+  }
+
+  45% {
+    transform: translateX(calc(100vw - 180px));
+  }
+
+  50% {
+    transform: translateX(calc(100vw - 180px));
+  }
+
+  95% {
+    transform: translateX(-260px);
+  }
+
+  100% {
+    transform: translateX(-260px);
+  }
+}
+
+
+/* Slight vehicle body movement */
+@keyframes vehicleBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+
+/* Drone flying around */
+@keyframes droneFlight {
+  0% {
+    transform: translate(-20px, 20px) rotate(-3deg);
+    opacity: 0.35;
+  }
+
+  20% {
+    transform: translate(15vw, -35px) rotate(2deg);
+    opacity: 0.65;
+  }
+
+  45% {
+    transform: translate(35vw, 25px) rotate(-2deg);
+    opacity: 0.75;
+  }
+
+  70% {
+    transform: translate(55vw, -45px) rotate(3deg);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translate(105vw, 15px) rotate(-3deg);
+    opacity: 0.3;
+  }
+}
+
+
+/* Drone propellers */
+@keyframes propeller {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(180deg);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+
+/* Electronic component floating */
+@keyframes componentFloat1 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(25px, -35px) rotate(5deg);
+  }
+}
+
+
+@keyframes componentFloat2 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-30px, 25px) rotate(-8deg);
+  }
+}
+
+
+@keyframes componentFloat3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(30px, -25px);
+  }
+}
+
+
+@keyframes componentFloat4 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-35px, -20px) rotate(5deg);
+  }
+}
+
+
+/* Circuit pulse */
+@keyframes circuitPulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scaleX(0.8);
+    transform-origin: left;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+
+/* =========================================================
+   EXTRA ELECTRONIC PARTICLES
+========================================================= */
+
+@keyframes electronicParticle {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.15;
+  }
+
+  50% {
+    transform: translate(40px, -50px);
+    opacity: 0.8;
+  }
+}
+
+
+/* =========================================================
+   HERO RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  @keyframes projectCarMove {
+    0% {
+      transform: translateX(-220px);
+    }
+
+    45% {
+      transform: translateX(calc(100vw - 130px));
+    }
+
+    50% {
+      transform: translateX(calc(100vw - 130px));
+    }
+
+    95% {
+      transform: translateX(-220px);
+    }
+
+    100% {
+      transform: translateX(-220px);
+    }
+  }
+
+  @keyframes droneFlight {
+    0% {
+      transform: translate(-40px, 20px);
+      opacity: 0.2;
+    }
+
+    50% {
+      transform: translate(45vw, -30px);
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translate(110vw, 20px);
+      opacity: 0.2;
+    }
+  }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[projectCarMove_14s_linear_infinite\],
+  .animate-\[droneFlight_12s_ease-in-out_infinite\],
+  .animate-\[propeller_0\.2s_linear_infinite\] {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   GALLERY ANIMATIONS
+========================================================= */
+
+@keyframes galleryFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes galleryCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes achievementReveal {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   GALLERY CAMERA
+========================================================= */
+
+@keyframes galleryCamera {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(4deg);
+  }
+}
+
+
+/* =========================================================
+   GALLERY BACKGROUND ORBS
+========================================================= */
+
+@keyframes galleryOrb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(100px, 70px) scale(1.25);
+  }
+}
+
+
+@keyframes galleryOrb2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-100px, -60px) scale(1.2);
+  }
+}
+
+
+@keyframes galleryOrb3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(80px, -50px) scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   GALLERY MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .gallery-card {
+    transform: none;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-card,
+  [class*="gallery"],
+  [class*="achievement"] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes contactOrb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(80px, 50px) scale(1.2);
+  }
+}
+
+@keyframes contactOrb2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-80px, -50px) scale(1.2);
   }
 }
