@@ -3519,3 +3519,134 @@ img {
     transform: translate(-80px, -50px) scale(1.2);
   }
 }
+
+/* =========================================================
+   ELECTRONIC COMPONENT ANIMATIONS
+========================================================= */
+
+@keyframes ledFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(3deg);
+  }
+}
+
+
+@keyframes diodeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(8deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(-8deg);
+  }
+}
+
+
+@keyframes sensorFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+
+@keyframes transistorFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(4deg);
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(-4deg);
+  }
+}
+
+
+@keyframes sensorWave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes droneFlight {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-2deg);
+  }
+
+  25% {
+    transform: translate(-18px, -12px) rotate(2deg);
+  }
+
+  50% {
+    transform: translate(5px, -25px) rotate(-2deg);
+  }
+
+  75% {
+    transform: translate(20px, -10px) rotate(2deg);
+  }
+}
+
+@keyframes propeller {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes droneCrossScreen {
+  0% {
+    left: -140px;
+    top: 30%;
+    transform: rotate(-8deg);
+  }
+
+  20% {
+    left: 18%;
+    top: 25%;
+    transform: rotate(4deg);
+  }
+
+  40% {
+    left: 38%;
+    top: 34%;
+    transform: rotate(-3deg);
+  }
+
+  60% {
+    left: 58%;
+    top: 25%;
+    transform: rotate(4deg);
+  }
+
+  80% {
+    left: 78%;
+    top: 32%;
+    transform: rotate(-4deg);
+  }
+
+  100% {
+    left: calc(100% + 140px);
+    top: 24%;
+    transform: rotate(8deg);
+  }
+}
